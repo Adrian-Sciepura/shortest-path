@@ -1,6 +1,10 @@
-﻿#include <iostream>
+﻿#include "Program.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    Program program;
+    program.start();
 }
