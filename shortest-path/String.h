@@ -8,10 +8,11 @@
 class String
 {
 private:
-	char* cstring;
+	
 	int length;
 
 public:
+	char* cstring;
 	String();
 	String(const char* source);
 	String(const String& source);
@@ -29,5 +30,14 @@ public:
 	friend bool operator==(const String& lhs, int length);
 	friend std::ostream& operator<<(std::ostream& os, const String& string);
 };
+
+namespace std {
+	template <>
+	struct hash<String> {
+		size_t operator()(const String& s) const {
+			return hash<string>()(s.cstring);
+		}
+	};
+}
 
 #endif
